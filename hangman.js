@@ -10,7 +10,7 @@ const composers = [
 ];
 
 let answer = '';
-let maxWrong = 10;
+let maxWrong = 7;
 let mistakes = 0;
 let guessed =[];
 let wordStatus = null;
@@ -57,16 +57,17 @@ let updateHangmanPicture = () =>{
 let checkIfGameWon = () => {
     if(wordStatus === answer) {
         document.getElementById('keyboard').innerHTML = 'Congrats, you won!'
-        document.getElementById('hangmanPic').src = "resources2/fireworks.png";
+        document.getElementById('hangmanPic').src ="resources/game-end-img/fireworks.png";
     };
  
 }
 
 let checkIfGameLost = () => {
     if(mistakes === maxWrong) {
+        document.getElementById('hangmanPic').src ="resources/game-end-img/lost.png";
         document.getElementById('keyboard').innerHTML = 'You lost'
         document.getElementById('wordSpotlight').innerHTML = 'The answer was ' + answer;
-    }
+    };
 }
 
 let guessedWord = () => {
@@ -81,7 +82,7 @@ const updateMistakes = () => {
 let reset = () => {
     mistakes = 0;
     guessed = [];
-    document.getElementById('hangmanPic').src = 'resources/1.png';
+    document.getElementById('hangmanPic').src = 'resources/0.png';
 
     randomWord();
     guessedWord();
